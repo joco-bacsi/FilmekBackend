@@ -31,7 +31,7 @@ public static class GamesEndpoints
         group.MapPost("/", async (creategameDto newGame, GameStoreContext dbContext) =>
         {
         Game game = newGame.ToEntity();
-           
+        //Hello,Hello
         dbContext.Games.Add(game);
         await dbContext.SaveChangesAsync();
             
