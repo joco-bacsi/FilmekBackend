@@ -4,11 +4,12 @@ using GameStore.Endpoints;
 var builder = WebApplication.CreateBuilder(args);
 
 var connString = builder.Configuration.GetConnectionString("GameStore");
-builder.Services.AddSqlite<GameStoreContext>(connString); 
+builder.Services.AddSqlite<filmkatalogusContext>(connString); 
 var app = builder.Build();
 
-app.MapGamesEndpoints(); 
-app.MapGenresEndpoints();
+app.MapSzineszekEndpoints(); 
+app.MapFilmekEndpoints();
+app.MapFilm_CastEndpoints();
 
 await app.MigrateDB();
 
