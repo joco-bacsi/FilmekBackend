@@ -7,7 +7,7 @@ namespace GameStore.Endpoints;
 
 public static class Film_CastEndpoints
 {
-    const string GetGameEndpointName = "GetGame"; 
+    const string GetFilmCast = "GetCast"; 
     public static RouteGroupBuilder MapFilm_CastEndpoints(this WebApplication app)
     {
         //Get /games
@@ -34,7 +34,7 @@ public static class Film_CastEndpoints
         dbContext.Film_Casts.Add(cast);
         await dbContext.SaveChangesAsync();
             
-        return Results.CreatedAtRoute(GetGameEndpointName, new { id = cast.SzineszId }, cast.ToFilm_CastDetailsDto());
+        return Results.CreatedAtRoute(GetFilmCast, new { id = cast.SzineszId }, cast.ToFilm_CastDetailsDto());
         });
 
         // Put /games/1

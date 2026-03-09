@@ -8,7 +8,7 @@ namespace GameStore.Endpoints;
 
 public static class FilmekEndpoints
 {
-    const string GetGameEndpointName = "GetGame"; 
+    const string GetFilm = "GetFilm"; 
     public static RouteGroupBuilder MapFilmekEndpoints(this WebApplication app)
     {
         //Get /games
@@ -35,7 +35,7 @@ public static class FilmekEndpoints
         dbContext.Filmek.Add(film);
         await dbContext.SaveChangesAsync();
             
-        return Results.CreatedAtRoute(GetGameEndpointName, new { id = film.Id }, film.ToFilmekDetailsDto());
+        return Results.CreatedAtRoute(GetFilm, new { id = film.Id }, film.ToFilmekDetailsDto());
         });
 
         // Put /games/1

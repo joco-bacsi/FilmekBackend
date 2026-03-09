@@ -8,7 +8,7 @@ namespace GameStore.Endpoints;
 
 public static class SzineszekEndpoints
 {
-    const string GetGameEndpointName = "GetGame"; 
+    const string GetSzinesz = "GetSzinesz"; 
     public static RouteGroupBuilder MapSzineszekEndpoints(this WebApplication app)
     {
         //Get /games
@@ -35,7 +35,7 @@ public static class SzineszekEndpoints
         dbContext.szineszeks.Add(szineszek);
         await dbContext.SaveChangesAsync();
             
-        return Results.CreatedAtRoute(GetGameEndpointName, new { id = szineszek.Id }, szineszek.ToSzineszekDetailsDto());
+        return Results.CreatedAtRoute(GetSzinesz, new { id = szineszek.Id }, szineszek.ToSzineszekDetailsDto());
         });
 
         // Put /games/1
